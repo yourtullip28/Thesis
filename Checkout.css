@@ -1,0 +1,118 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FBFCF8;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 25px;
+    color: black;
+}
+
+/* GPS and Map Section */
+.gps-container, .map-container {
+    width: 100%;
+    background: rgb(3, 4, 94);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gps-container {
+    height: 5vh;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.map-container {
+    height: 15vh;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1080px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Checkout and Action Buttons */
+.checkout-button, .done, .cancel {
+    background: #FBFCF8;
+    border: 3px solid rgb(3,4,94);
+    padding: 10px 30px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 5px;
+}
+
+.checkout-button:hover {
+    background: darkgreen;
+}
+
+.cancel:hover {
+    background: lightcoral;
+}
+
+.done:hover {
+    background: paleturquoise;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .ticket-options {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .ticket-button {
+        height: 90px;
+        font-size: 16px;
+    }
+
+    .checkout-button, .done, .cancel {
+        font-size: 18px;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ticket-options {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .ticket-button {
+        height: 80px;
+        font-size: 14px;
+    }
+
+    .checkout-button, .done, .cancel {
+        font-size: 16px;
+        padding: 6px 15px;
+    }
+}

@@ -1,0 +1,98 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FBFCF8;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 25px;
+    color: black;
+}
+
+/* Map - 20% of Screen */
+.gps-container {
+    width: 100%;
+    height: 5vh;
+    background: rgb(3, 4, 94);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.map-container {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(3, 4, 94);
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1080px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+.print-icon {
+    font-size: 200px; /* Increase the size */
+    color: black; /* Change color if needed */
+    margin-top: 20px;
+}
+
+@media print {
+        body * {
+            visibility: hidden;
+        }
+        .ticket, .ticket * {
+            visibility: visible;
+        }
+        .ticket {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Print Button */
+    .print-button {
+        background: #FBFCF8;
+        color: rgb(3, 4, 94);
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .print-button:hover {
+        background: darkgreen;
+        color: white;
+    }
