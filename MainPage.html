@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Boat Tracking</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWrXtUyyqoWHwLddsIRgZKjKc9YGeW7FI"></script>
+    <style>
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: rgb(3, 4, 94);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Header Section (20% of Screen) */
+        .header {
+            width: 100%;
+            height: 15vh;
+            background: rgb(0, 180, 216);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            height: 80px;
+            margin-left: 10px;
+        }
+        .title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Latitude & Longitude Container (5% of Screen) */
+        .coordinates {
+            width: 100%;
+            height: 5vh;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* Map Section (Centered & 55% of Screen) */
+        .map-container {
+            width: 100%;
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border-radius: 0px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button Section (20% of Screen) */
+        .button-container {
+            width: 100%;
+            height: 15vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(3, 4, 94);
+        }
+
+        /* Button Styling */
+        .button {
+            color: white;
+            padding: 20px 50px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <img src="Logo.png" alt="Boat Logo" class="logo"> <!-- Replace with your logo -->
+        <div class="title">Atimonan to Perez Route</div>
+    </div>
+
+    <!-- Coordinates Section -->
+    <div class="coordinates">Latitude: <span id="latitude">      </span> | Longitude: <span id="longitude">          </span></div>
+
+    <!-- Map Section -->
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+
+    <!-- Button Section -->
+    <div class="button-container">
+        <a href="ticket.html" class="button">TOUCH HERE TO CONTINUE</a>
+    </div>
+
+    <script>
+    let map, marker;
+
+    function initMap(latitude = 14.5995, longitude = 120.9842) {
+        const location = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: location,
+            zoom: 15
+        });
+
+        marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: "Current GPS Location",
+            icon: {
+                url: 'boat-icon.png',
+                scaledSize: new google.maps.Size(90, 90),
+            },
+            animation: google.maps.Animation.DROP
+        });
+    }
+
+    function fetchData() {
+        fetch('controller.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.latitude && data.longitude) {
+                    updateMap(parseFloat(data.latitude), parseFloat(data.longitude));
+                    document.getElementById('latitude').textContent = data.latitude;
+                    document.getElementById('longitude').textContent = data.longitude;
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }
+
+    function updateMap(latitude, longitude) {
+        const location = { lat: latitude, lng: longitude };
+        map.setCenter(location);
+        marker.setPosition(location);
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(() => { marker.setAnimation(null); }, 2000);
+    }
+
+    window.onload = function () {
+        initMap();
+        fetchData();
+    };
+
+    setInterval(fetchData, 10000);
+</script>
+
+</body>
+</html>
