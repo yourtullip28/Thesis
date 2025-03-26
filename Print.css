@@ -54,14 +54,32 @@ h1 {
     justify-content: center;
     width: 100%;
     max-width: 1080px;
+    min-height: 80vh;
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0;
 }
+.print-button {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    width: 100vw;
+    height: 100vh; 
+    background-color: white;
+    color: black; 
+    font-size: 2.7rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    gap: 20px;
+    transition: background 0.3s ease-in-out;
+}
+
 .print-icon {
-    font-size: 200px; /* Increase the size */
-    color: black; /* Change color if needed */
-    margin-top: 20px;
+    margin-top: 3rem;
+    font-size: 15rem; /* Make the icon larger */
+    color: black; /* Black icon */
 }
 
 @media print {
@@ -79,20 +97,4 @@ h1 {
         }
     }
 
-    /* Print Button */
-    .print-button {
-        background: #FBFCF8;
-        color: rgb(3, 4, 94);
-        font-size: 18px;
-        font-weight: bold;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-    }
-
-    .print-button:hover {
-        background: darkgreen;
-        color: white;
-    }
+    
