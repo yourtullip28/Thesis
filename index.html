@@ -11,6 +11,11 @@
 </head>
 <body>
 
+  <div class="header-container">
+    <h1>CAPRICORN WATER TRANSPORT</h1>
+    <p>Mapagmahal Pob. (Brgy.2) 4334 Perez, Quezon</p>
+  </div>
+      
      <!--MAP CONTAINER-->
     <div class="map-container">
         <div id="map"></div>
@@ -20,32 +25,37 @@
         Latitude: <span id="latitude">N/A</span> | Longitude: <span id="longitude">N/A</span>
     </div>
     <!--FOR TICKETING-->
+  <!--FOR TICKETING-->
   <div class="kiosk-container">
     <h1 class="kiosk-title">Ticketing Kiosk</h1>
     <div class="selection-container">
-        <!-- Ticket Type Buttons -->
+      
+      <!-- Ticket Controls -->
+      <div id="ticketControls" class="ticket-controls hidden">
+        
+        
+        <!-- Ticket Type Buttons Inside Ticket Controls -->
         <div class="button-group">
           <button class="passenger-button" data-price="150" data-type="Regular"><i class="fa-solid fa-person"></i> Regular (₱150)</button>
           <button class="passenger-button" data-price="120" data-type="Senior"><i class="fa-solid fa-blind"></i> Seniors (₱120)</button>
           <button class="passenger-button" data-price="130" data-type="Student"><i class="fa-solid fa-user-graduate"></i> Student (₱130)</button>
           <button class="passenger-button" data-price="70" data-type="Child"><i class="fa-solid fa-baby"></i>   Child (₱70)</button>
         </div>
-      
-        <!-- Ticket Controls -->
-        <div id="ticketControls" class="ticket-controls hidden">
-          <p class="selected-type">Selected: <span id="selectedType"></span></p>
-          <div class="adjust-controls">
-            <button id="decreaseButton" class="adjust-button">-</button>
-            <span id="ticketCountDisplay">1</span>
-            <button id="increaseButton" class="adjust-button">+</button>
-          </div>
 
-          
+        <div class="adjust-controls">
+          <button id="decreaseButton" class="adjust-button">-</button>
+          <span id="ticketCountDisplay">1</span>
+          <button id="increaseButton" class="adjust-button">+</button>
+        </div>
+
+        <p class="selected-type">Selected: <span id="selectedType"></span></p>
+
         <div class="button-container"> 
           <button id="addToCartButton" class="add-to-cart-button">Add to Cart</button>
           <button id="cancelButton" class="cancel-button">Cancel</button>
         </div>
-        </div>
+      </div>
+      
     </div>
     
     <div id="cartDisplay" class="cart-display">
