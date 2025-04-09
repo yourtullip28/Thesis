@@ -8,90 +8,192 @@
     <style>
         /* General Styles */
         body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            background: rgb(3, 4, 94);
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #FBFCF8;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
 
-        /* Header Section (20% of Screen) */
-        .header {
-            width: 100%;
-            height: 15vh;
-            background: rgb(0, 180, 216);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .logo {
-            height: 80px;
-            margin-left: 10px;
-        }
-        .title {
-            flex-grow: 1;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-        }
+/* Header Section (20% of Screen) */
+.header {
+    width: 100%;
+    height: 15vh;
+    background: rgb(0, 180, 216);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-        /* Latitude & Longitude Container (5% of Screen) */
-        .coordinates {
-            width: 100%;
-            height: 5vh;
-            background: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: black;
-        }
+.logo {
+    height: 80px;
+    object-fit: contain ;
+}
 
-        /* Map Section (Centered & 55% of Screen) */
-        .map-container {
-            width: 100%;
-            height: 65vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+}
 
-        #map {
-            width: 100%;
-            height: 100%;
-            border-radius: 0px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+.header-content h1 {
+    font-size: 24px;
+    margin: 0;
+}
 
-        /* Button Section (20% of Screen) */
-        .button-container {
-            width: 100%;
-            height: 15vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgb(3, 4, 94);
-        }
+.header-content p {
+    margin: 5px 0;
+    font-size: 16px;
+}
 
-        /* Button Styling */
-        .button {
-            color: white;
-            padding: 20px 50px;
-            font-size: 24px;
-            font-weight: bold;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s;
-        }
+/* Latitude & Longitude Container (5% of Screen) */
+.coordinates {
+    width: 100%;
+    height: 5vh;
+    background: rgb(3, 4, 94);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Map Section (Centered & 55% of Screen) */
+.map-container {
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.gps-container {
+    width: 100%;
+    height: 5vh;
+    background: rgb(3, 4, 94);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    gap: 20px; /* Add space between each element */
+}
+
+.gps-container span {
+    margin: 0 5px; /* Optional: Add horizontal spacing between spans */
+}
+
+/* Button Section (20% of Screen) */
+.button-container {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(3, 4, 94);
+}
+
+/* Button Styling */
+.button {
+    color: white;
+    padding: 20px 50px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header {
+        height: 10vh;
+    }
+
+    .header-content {
+        font-size: 12px;
+    }
+
+    .header-content h1 {
+        font-size: 20px;
+    }
+
+    .header-content p {
+        font-size: 14px;
+    }
+
+    .coordinates {
+        font-size: 16px;
+    }
+
+    .map-container {
+        height: 50vh;
+    }
+
+    #map {
+        height: 100%;
+    }
+
+    .button-container {
+        height: 12vh;
+    }
+
+    .button {
+        font-size: 20px;
+        padding: 15px 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        height: 8vh;
+    }
+
+    .header-content h1 {
+        font-size: 16px;
+    }
+
+    .header-content p {
+        font-size: 12px;
+    }
+
+    .coordinates {
+        font-size: 14px;
+    }
+
+    .map-container {
+        height: 45vh;
+    }
+
+    .button-container {
+        height: 10vh;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+}
 
     </style>
 </head>
@@ -100,11 +202,17 @@
     <!-- Header Section -->
     <div class="header">
         <img src="Logo.png" alt="Boat Logo" class="logo"> <!-- Replace with your logo -->
-        <div class="title">Atimonan to Perez Route</div>
+        <div class="header-content">
+            <h1>CAPRICORN WATER TRANSPORT</h1>
+            <p>Mapagmahal Pob. (Brgy.2) 4334 Perez, Quezon</p>
+            <p>Atimonan to Perez Route</p>
+        </div>
+        
     </div>
 
-    <!-- Coordinates Section -->
-    <div class="coordinates">Latitude: <span id="latitude">      </span> | Longitude: <span id="longitude">          </span></div>
+    <div class="gps-container">
+        Latitude: <span id="latitude">N/A</span> | Longitude:   <span id="longitude">N/A</span>          |  <t> <span id="current-time-date"></span></t>          
+    </div>
 
     <!-- Map Section -->
     <div class="map-container">
@@ -113,13 +221,13 @@
 
     <!-- Button Section -->
     <div class="button-container">
-        <a href="ticket.html" class="button">TOUCH HERE TO CONTINUE</a>
+        <a href="index.html" class="button">TAP HERE TO BUY TICKET</a>
     </div>
 
     <script>
     let map, marker;
 
-    function initMap(latitude = 14.5995, longitude = 120.9842) {
+    function initMap(latitude = 14.0005, longitude = 121.9287) {
         const location = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
 
         map = new google.maps.Map(document.getElementById('map'), {
@@ -133,7 +241,7 @@
             title: "Current GPS Location",
             icon: {
                 url: 'boat-icon.png',
-                scaledSize: new google.maps.Size(90, 90),
+                scaledSize: new google.maps.Size(100, 100),
             },
             animation: google.maps.Animation.DROP
         });
@@ -168,6 +276,23 @@
     };
 
     setInterval(fetchData, 10000);
+    //For the Time and Date
+function updateDateTime() {
+  const now = new Date();
+
+  // Format the time and date as needed
+  const date = now.toLocaleDateString(); // You can adjust the format as needed
+  const time = now.toLocaleTimeString(); // This will give the time in the user's local format
+
+  // Set the time and date in the 'current-time-date' span
+  document.getElementById('current-time-date').textContent = `${date} | ${time}`;
+}
+
+// Update time and date every second
+setInterval(updateDateTime, 1000);
+
+// Initially update the date and time when the page loads
+updateDateTime();
 </script>
 
 </body>
