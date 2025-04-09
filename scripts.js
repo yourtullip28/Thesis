@@ -70,7 +70,23 @@ window.onload = function () {
 
 // Auto-refresh every 10 seconds
 setInterval(fetchData, 10000);
+//For the Time and Date
+function updateDateTime() {
+  const now = new Date();
 
+  // Format the time and date as needed
+  const date = now.toLocaleDateString(); // You can adjust the format as needed
+  const time = now.toLocaleTimeString(); // This will give the time in the user's local format
+
+  // Set the time and date in the 'current-time-date' span
+  document.getElementById('current-time-date').textContent = `${date} | ${time}`;
+}
+
+// Update time and date every second
+setInterval(updateDateTime, 1000);
+
+// Initially update the date and time when the page loads
+updateDateTime();
 //Kiosk
 let selectedPrice = 0;
 let selectedType = '';
@@ -213,7 +229,6 @@ function deleteCartItem(index) {
 
 // Confirm checkout
 confirmCheckoutButton.addEventListener('click', () => {
-  alert(`Checkout successful! Total amount to pay: ₱${totalCost.toFixed(2)}`);
   cart = [];
   updateCart();
   closeModal();
